@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="heading">
-      <h1 class="title">Title</h1>
+      <h1 class="title">My Account</h1>
       <h2 class="subtitle">
-        Subtitle
+        Dashboard
       </h2>
     </div>
 
-  <h1>You are logged in</h2>
+  <h1>Profile Info</h2>
 @endsection

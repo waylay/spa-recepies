@@ -4,7 +4,7 @@
       <a class="nav-item logo" href="{{ url('/') }}">
           <img src="{{ asset('images/logo.png') }}" alt="Recipes">
       </a>
-      <a class="nav-item is-tab is-hidden-mobile">Recipes</a>
+      <a class="nav-item is-tab is-hidden-mobile {{ active('recipes') }}" href="/recipes">Recipes</a>
       <a class="nav-item is-tab is-hidden-mobile">Add new</a>
       <a class="nav-item is-tab is-hidden-mobile">About</a>
     </div>
@@ -14,9 +14,8 @@
       <span></span>
     </span>
     <div class="nav-right nav-menu">
-      <a class="nav-item is-tab is-hidden-tablet is-active">Home</a>
-      <a class="nav-item is-tab is-hidden-tablet">Features</a>
-      <a class="nav-item is-tab is-hidden-tablet">Pricing</a>
+      <a class="nav-item is-tab is-hidden-tablet" href="/recipes">Recipes</a>
+      <a class="nav-item is-tab is-hidden-tablet">Add new</a>
       <a class="nav-item is-tab is-hidden-tablet">About</a>
       <!-- Authentication Links -->
       @if (Auth::guest())
@@ -24,7 +23,7 @@
           <a class="nav-item is-tab" href="{{ route('register') }}">Register</a>
       @else
 
-          <a href="#" class="nav-item is-tab">
+          <a href="/dashboard" class="nav-item is-tab">
               {{ Auth::user()->name }} <span class="caret"></span>
           </a>
 

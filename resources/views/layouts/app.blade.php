@@ -31,8 +31,9 @@
     <div id="app">
 
       @include('partials.nav')
+      @yield('hero')
 
-      <section class="section main-section">
+      <section class="section">
         <div class="container">
           @yield('content')
         </div>

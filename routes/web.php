@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.landing');
-});
-
+Route::get('/', 'PagesController@landing');
+Route::get('/dashboard', 'PagesController@dashboard');
+Route::resource('/recipes','RecipeController');
+Route::resource('/ingredients','IngredientController');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
