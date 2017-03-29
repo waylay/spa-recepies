@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
 
-                <div class="panel-body">
-                    please log in
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <div class="heading">
+    <h1 class="title">Title</h1>
+    <h2 class="subtitle">
+      Subtitle
+    </h2>
+  </div>
+  <div class="content">
+    <h1>welcome, please log in!</h1>
+  </div>
+
+
+
 @endsection
