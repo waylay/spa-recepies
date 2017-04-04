@@ -17,6 +17,7 @@ class CreateIngredientsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
+            $table->string('unit')->default('g');
             $table->string('image');
             $table->timestamps();
         });

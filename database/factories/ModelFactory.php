@@ -23,15 +23,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Step::class, function (Faker\Generator $faker) {
+
+    return [
+        'recipe_id' => function(){
+          return factory(App\Recipe::class)->create()->id;
+        },
+        'content' => $faker->paragraph,
+    ];
+});
 
 $factory->define(App\Recipe::class, function (Faker\Generator $faker) {
-    
+
     return [
         'user_id' => function(){
           return factory(App\User::class)->create()->id;
         },
-        'name' => $faker->sentence,
-        'description' => $faker->text,
+        'name' => $faker->sentence(6),
+        'description' => $faker->paragraph,
         'image' => 'recipe_placeholder.jpg',
     ];
 });
@@ -39,7 +48,7 @@ $factory->define(App\Recipe::class, function (Faker\Generator $faker) {
 $factory->define(App\Ingredient::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'description' => $faker->text,
+        'description' => $faker->paragraph,
         'image' => 'recipe_placeholder.jpg',
     ];
 });

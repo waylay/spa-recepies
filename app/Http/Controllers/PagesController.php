@@ -25,8 +25,9 @@ class PagesController extends Controller
      */
     public function landing()
     {
-      $recipes = Recipe::with('user')->latest()->take(8)->get();
-      return view('pages.landing',compact('recipes'));
+      $latest_recipes = Recipe::latest()->take(4)->get();
+      $popular_recipes = Recipe::popular()->take(4)->get();
+      return view('pages.landing',compact('latest_recipes','popular_recipes'));
     }
 
     /**
@@ -36,7 +37,7 @@ class PagesController extends Controller
      */
     public function dashboard()
     {
-      $recipes = Recipe::with('user')->latest()->get();
+      $recipes = Recipe::latest()->get();
       return view('pages.dashboard');
     }
 }

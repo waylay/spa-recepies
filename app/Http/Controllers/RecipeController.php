@@ -15,7 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::with('user')->latest()->get();
+        $recipes = Recipe::latest()->paginate(8);
 
         return view('recipes.index', compact('recipes'));
     }
@@ -49,7 +49,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        //
+        return view('recipes.show', compact('recipe'));
     }
 
     /**

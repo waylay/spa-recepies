@@ -17,20 +17,34 @@
 
 @section('content')
 
-  <section class="section">
-  <div class="heading">
-    <h1 class="title">Latest Recipes</h1>
-    <h2 class="subtitle"><a href="/recipes">Browse all recipes</a></h2>
+  <div class="headline">
+    <div class="heading">
+      <h1 class="title">Latest Recipes</h1>
+      <h2 class="subtitle"><a href="/recipes">Browse all recipes</a></h2>
+    </div>
   </div>
-  </section>
 
   <div class="columns is-desktop is-multiline">
-  @foreach ($recipes as $recipe)
-    <div class="column is-3">
-      @include('recipes.card')
-    </div>
-  @endforeach
+    @foreach ($latest_recipes as $recipe)
+      <div class="column is-3">
+        @include('recipes.card')
+      </div>
+    @endforeach
   </div>
 
+  <div class="headline">
+    <div class="heading">
+      <h1 class="title">Popular Recipes</h1>
+      <h2 class="subtitle"><a href="/recipes">Browse all recipes</a></h2>
+    </div>
+  </div>
+
+  <div class="columns is-desktop is-multiline">
+    @foreach ($popular_recipes as $recipe)
+      <div class="column is-3">
+        @include('recipes.card')
+      </div>
+    @endforeach
+  </div>
 
 @endsection

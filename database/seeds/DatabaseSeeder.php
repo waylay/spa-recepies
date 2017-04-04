@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
 
 
       factory(App\User::class, 5)->create()->each(function ($u) use ($ingredients) {
-         $u->recipes()->saveMany(factory(App\Recipe::class, 10)->create(['user_id' => $u->id ])->each( function ($r) use ($ingredients) {
+        $u->recipes()->saveMany(factory(App\Recipe::class, 10)->create(['user_id' => $u->id ])->each( function ($r) use ($ingredients) {
            $r->ingredients()->attach($ingredients->random(rand(2,6)));
+           $r->steps()->saveMany(factory(App\Step::class, 6)->create(['recipe_id' => $r->id ]));
          })
-       );
-     });
+        );
+      });
+
     }
 }
